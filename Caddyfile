@@ -1,6 +1,7 @@
 
 maishatu.com {
-  reverse_proxy webdevcody:3000
-  tls /etc/ssl/certs/custom/webdevcody.pem /etc/ssl/private/custom/webdevcody.pem
+  reverse_proxy maishatu:3000
+  tls /etc/ssl/certs/custom/maishatu.pem /etc/ssl/private/custom/maishatu.pem
 }
 
+8   
