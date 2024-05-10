@@ -3,7 +3,7 @@ version: "3.8"
 services:
   maishatu:
     build:
-      context: .
+      context: /home/paulg/dev/services/website
       dockerfile: /home/paulg/dev/services/website/Dockerfile # path in my host server
     restart: always
     environment:
