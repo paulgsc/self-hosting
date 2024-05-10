@@ -8,10 +8,6 @@ services:
     restart: always
     environment:
       - BUILD_VERSION=${BUILD_VERSION}
-    volumes:
-      - type: bind
-        source: ${PWD}/database.db
-        target: /app/database.db
     # networks:
     #   - caddy_network
 
