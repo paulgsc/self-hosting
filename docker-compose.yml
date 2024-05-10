@@ -27,9 +27,7 @@ services:
     # networks:
     #   - caddy_network
     depends_on:
-      - knowlesglass
-      - webdevcody
-      - icongeneratorai
+      - maishatus
 
   # postgres:
   #   image: postgres
