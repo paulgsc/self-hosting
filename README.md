@@ -2,12 +2,35 @@
 
 I'm using this to self host on a local nixos server.
 
-1. `ssh root@MACHINE_IP`
-1. `aws configure`
-1. `cd /root`
-1. `git clone https://github.com/webdevcody/single-vps-host`
-1. `cd single-vps-host`
-1. place certs in `./certs/${SERVICE_NAME}.pem`
-1. place keys in `./private/${SERVICE_NAME}.pem`
-1. `./setup.sh`
-1. `docker compose up -d`
+# Docker nice to know
+
+Docker commmands that occur frequently:
+
+- listing images
+- deleting images
+- building containers
+- running containers
+
+  List all running containers:
+
+  ```
+  docker ps
+  ```
+
+  Stop containers running:
+
+  ```
+  docker stop CONTAINER_ID
+  ```
+
+  Remove containers:
+
+  ```
+  docker rm CONTAINER_ID
+  ```
+
+  Remove all dangling images (images that are not being used by any container) from your system.:
+
+  ```
+  docker image prune --all
+  ```
