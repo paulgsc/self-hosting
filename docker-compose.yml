@@ -27,7 +27,7 @@ services:
     # networks:
     #   - caddy_network
     depends_on:
-      - maishatus
+      - maishatu
 
   # postgres:
   #   image: postgres
