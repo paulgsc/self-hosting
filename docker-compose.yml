@@ -1,15 +1,22 @@
 version: "3.8"
-
 services:
   maishatu:
     build:
       context: /home/paulg/dev/services/website/self-host
-      dockerfile: /home/paulg/dev/services/website/self-host/Dockerfile # path in my host server
+      dockerfile: /home/paulg/dev/services/website/self-host/Dockerfile
     restart: always
     environment:
       - BUILD_VERSION=${BUILD_VERSION}
-    # networks:
-    #   - caddy_network
+    depends_on:
+      - pnpm-installer
+
+  pnpm-installer:
+    image: node:18-alpine
+    volumes:
+      - pnpm-store:/app/.pnpm-store
+    working_dir: /app
+    command: sh -c "npm install -g pnpm"
+    restart: "no"
 
   caddy:
     image: caddy:latest
@@ -24,24 +31,10 @@ services:
       - "80:80"
       - "443:443"
       - "443:443/udp"
-    # networks:
-    #   - caddy_network
     depends_on:
       - maishatu
 
-  # postgres:
-  #   image: postgres
-  #   environment:
-  #     POSTGRES_DB: voidpulse
-  #     POSTGRES_USER: youruser
-  #     POSTGRES_PASSWORD: yourpassword
-  #   volumes:
-  #     - postgres-data:/var/lib/postgresql/data
-
 volumes:
-  # postgres-data:
   caddy_data:
   caddy_config:
-# In case of multiple containers
-# networks:
-#   caddy_network:
+  pnpm-store:
