@@ -7,16 +7,6 @@ services:
     restart: always
     environment:
       - BUILD_VERSION=${BUILD_VERSION}
-    depends_on:
-      - pnpm-installer
-
-  pnpm-installer:
-    image: node:18-alpine
-    volumes:
-      - pnpm-store:/app/.pnpm-store
-    working_dir: /app
-    command: sh -c "npm install -g pnpm"
-    restart: "no"
 
   caddy:
     image: caddy:latest

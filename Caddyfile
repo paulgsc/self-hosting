@@ -1,5 +1,5 @@
 
-maishatu.com {
+karibu.maishatu.com {
   reverse_proxy maishatu:3000
   tls /etc/ssl/certs/custom/maishatu.pem /etc/ssl/private/custom/maishatu.pem
 }
