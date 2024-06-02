@@ -10,7 +10,7 @@ services:
     image: caddy:latest
     restart: unless-stopped
     volumes:
-      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+      - ./Caddyfile:/etc/caddy/Caddyfile
       - ./certs:/etc/ssl/certs/custom
       - ./private:/etc/ssl/private/custom
       - caddy_data:/data
