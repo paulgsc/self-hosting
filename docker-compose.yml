@@ -1,9 +1,7 @@
 version: "3.8"
 services:
   maishatu:
-    build:
-      context: /home/paulg/dev/services/website/self-host
-      dockerfile: /home/paulg/dev/services/website/self-host/Dockerfile
+    image: pgathondu/self-hosting-maishatu:10.8.1
     restart: always
     environment:
       - BUILD_VERSION=${BUILD_VERSION}
