@@ -1,8 +1,17 @@
 
-localhost {
-    reverse_proxy 127.0.0.1:3000
-    reverse_proxy 127.0.0.1:6006
-    reverse_proxy 127.0.0.1:8080
+nixos.local {
+    handle_path /3000/* {
+        reverse_proxy 127.0.0.1:3000
+    }
+
+    handle_path /8080/* {
+        reverse_proxy 127.0.0.1:8080
+    }
+
+    handle_path /6006/* {
+        reverse_proxy 127.0.0.1:6006
+    }
+
 }
 
 
